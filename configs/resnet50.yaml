@@ -1,0 +1,14 @@
+MODEL:
+  NAME: 'resnet50'
+  TYPE: 'backbone'
+  NUM_CLASSES: 1000
+  WEIGHTS: 'tmp/checkpoints/resnet50/R224_train_epoch_097_acc_75.26.ckpt'
+TEST:
+  BATCH_SIZE: 400
+SCALING:
+  RES_MULT_A: 1.0
+  WIDTH_MULT: 1.0
+DATASET:
+#  PATH: "/home/hao/Downloads/"
+  NAME: 'imagenet'
+NUM_GPUS: 4

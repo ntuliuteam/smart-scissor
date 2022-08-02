@@ -1,0 +1,21 @@
+MODEL:
+  NAME: 'resnet50'
+  TYPE: 'backbone'
+  NUM_CLASSES: 1000
+  LOAD_WEIGHTS_FROM_URL: False
+  BOX_WEIGHTS: 'tmp/checkpoints/foreground_predictor.ckpt'
+  WEIGHTS: 'tmp/checkpoints/CSSR224_MACs_3.2B_acc_76.81.ckpt'
+TEST:
+  BATCH_SIZE: 400
+CROP:
+  TYPE: 'cropnet_anynet_light_box'
+  SHAPE: 'square'
+  TUNE_STRIDE: 100
+  TUNE_PROB: 0.7
+  REGULATE: True
+SCALING:
+  RES_MULT_B: 1.0
+  WIDTH_MULT: 0.8
+DATASET:
+  NAME: 'imagenet_for_crop'
+NUM_GPUS: 4
